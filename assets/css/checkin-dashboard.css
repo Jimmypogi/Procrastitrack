@@ -1,0 +1,227 @@
+.checkin-dashboard-card {
+    margin: 22px 0 26px;
+    padding: 23px;
+    border: 1px solid #e3ebe4;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(31, 54, 38, .045);
+}
+
+.checkin-dashboard-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.checkin-dashboard-eyebrow,
+.checkin-dashboard-label {
+    display: block;
+    color: #708278;
+    font-size: .64rem;
+    font-weight: 750;
+    letter-spacing: .1em;
+}
+
+.checkin-dashboard-heading h2 {
+    margin: 5px 0 4px;
+    color: #263b2d;
+    font-size: 1.12rem;
+    letter-spacing: -.025em;
+}
+
+.checkin-dashboard-heading p {
+    margin: 0;
+    color: #718076;
+    font-size: .77rem;
+}
+
+.checkin-dashboard-heading > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    padding: 9px 13px;
+    border: 1px solid #dfe9e0;
+    border-radius: 999px;
+    color: #4c7355;
+    font-size: .72rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.checkin-dashboard-heading > a:hover {
+    border-color: #b7cbb9;
+    background: #f5f8f5;
+}
+
+.checkin-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.checkin-dashboard-item {
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid #e7eee8;
+    border-radius: 14px;
+    background: #fbfcfb;
+}
+
+.checkin-dashboard-item > strong {
+    display: block;
+    margin: 9px 0 5px;
+    color: #293d30;
+    font-size: 1.02rem;
+    font-weight: 750;
+    letter-spacing: -.02em;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.checkin-dashboard-item > strong.is-done {
+    color: #45764f;
+}
+
+.checkin-dashboard-item > a {
+    color: #628069;
+    font-size: .68rem;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.checkin-dashboard-item > a:hover {
+    text-decoration: underline;
+}
+
+.checkin-dashboard-caption {
+    display: block;
+    margin-top: 5px;
+    color: #7a887e;
+    font-size: .66rem;
+    line-height: 1.45;
+}
+
+.checkin-dashboard-recommendation > p {
+    margin: 9px 0 0;
+    color: #4e5e52;
+    font-size: .74rem;
+    line-height: 1.55;
+}
+
+.checkin-dashboard-trend-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.checkin-dashboard-trend-heading > strong {
+    color: #4d7456;
+    font-size: .7rem;
+    white-space: nowrap;
+}
+
+.checkin-trend-bars {
+    display: grid;
+    height: 66px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: end;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.checkin-trend-bars > span {
+    display: flex;
+    height: 100%;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.checkin-trend-bars i {
+    display: block;
+    width: min(100%, 20px);
+    min-height: 4px;
+    border-radius: 5px 5px 2px 2px;
+    background: linear-gradient(180deg, #9bb9a0, #62856c);
+}
+
+.checkin-trend-bars .is-empty i {
+    height: 4px !important;
+    background: #e5ebe6;
+}
+
+.checkin-trend-bars b {
+    color: #849087;
+    font-size: .56rem;
+    font-weight: 600;
+}
+
+body.dark-mode .checkin-dashboard-card {
+    border-color: #3a4d40;
+    background: #202d25;
+}
+
+body.dark-mode .checkin-dashboard-heading h2,
+body.dark-mode .checkin-dashboard-item > strong {
+    color: #dfebe2;
+}
+
+body.dark-mode .checkin-dashboard-heading p,
+body.dark-mode .checkin-dashboard-eyebrow,
+body.dark-mode .checkin-dashboard-label,
+body.dark-mode .checkin-dashboard-caption,
+body.dark-mode .checkin-trend-bars b {
+    color: #acbcb0;
+}
+
+body.dark-mode .checkin-dashboard-heading > a,
+body.dark-mode .checkin-dashboard-item {
+    border-color: #3a4d40;
+    background: #29392e;
+    color: #c1d5c5;
+}
+
+body.dark-mode .checkin-dashboard-item > strong.is-done,
+body.dark-mode .checkin-dashboard-item > a,
+body.dark-mode .checkin-dashboard-trend-heading > strong {
+    color: #a7c7ad;
+}
+
+body.dark-mode .checkin-dashboard-recommendation > p {
+    color: #c3d0c5;
+}
+
+body.dark-mode .checkin-trend-bars .is-empty i {
+    background: #405146;
+}
+
+@media (max-width: 1000px) {
+    .checkin-dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .checkin-dashboard-card {
+        padding: 17px;
+    }
+
+    .checkin-dashboard-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .checkin-dashboard-heading > a {
+        justify-content: center;
+    }
+
+    .checkin-dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -1,0 +1,63 @@
+.daily-streak{display:grid;grid-template-columns:1fr 1fr;gap:32px;background:linear-gradient(115deg,#fffaf0,#fff 55%);border:1px solid #e8e8dc;border-radius:22px;padding:28px;margin:0 0 26px;color:#2e4034}.streak-heading{display:flex;align-items:center;gap:12px}.streak-flame{display:grid;place-items:center;width:46px;height:46px;background:#fff0ce;color:#c98a26;border-radius:15px;flex-shrink:0}.streak-flame .app-icon{width:26px;height:26px}.streak-eyebrow{font-size:.63rem;letter-spacing:.12em;font-weight:750;color:#9b854f;margin:0 0 5px}.streak-heading h2{font-size:1.05rem;margin:0}.streak-today{margin-left:auto;background:#eaf3e9;color:#5a7b60;font-size:.66rem;padding:6px 9px;border-radius:20px;white-space:nowrap}.streak-number{display:flex;align-items:center;gap:18px;margin:24px 0}.streak-number>strong{font-size:3.6rem;font-weight:800;line-height:1;letter-spacing:-.06em;color:#5d7c64}.streak-number b{font-size:.95rem}.streak-number p{font-size:.8rem;line-height:1.6;color:#7b867c;margin:5px 0 0;max-width:290px}.streak-records{display:flex;gap:24px;font-size:.73rem;color:#839084}.streak-records b{display:block;color:#506657;margin-top:5px;font-size:.85rem}.streak-week{border-left:1px solid #e9ede6;padding-left:32px;min-width:0}.streak-week-title{display:flex;justify-content:space-between;gap:10px;align-items:center}.streak-week-title h3{font-size:.83rem;margin:0}.streak-week-title>span{font-size:.67rem;color:#8c968b}.streak-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:20px 0}.streak-day{text-align:center;display:flex;align-items:center;flex-direction:column;gap:8px;color:#8e978e;font-size:.67rem}.streak-day b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#f1f3ee;color:#a1a99e;font-size:.85rem}.streak-day.is-active b{background:#e4ad48;color:white}.streak-day[aria-current] b{outline:2px solid #e7ca8f;outline-offset:3px}.streak-day small{font-size:.6rem;white-space:nowrap}.streak-goal{display:flex;justify-content:space-between;font-size:.72rem;color:#7a887c}.streak-goal b{color:#5b7460}.daily-streak progress{width:100%;height:7px;border:0;border-radius:10px;overflow:hidden;appearance:none;margin-top:9px;background:#edf1e9}.daily-streak progress::-webkit-progress-bar{background:#edf1e9}.daily-streak progress::-webkit-progress-value{background:#87a58a}.daily-streak progress::-moz-progress-bar{background:#87a58a}.streak-rule{font-size:.67rem;line-height:1.7;color:#8a9489;margin:12px 0 0}body.dark-mode .daily-streak{background:linear-gradient(115deg,#302c20,#1c2a22 60%);border-color:#3c493d;color:#e2e9df}body.dark-mode .streak-number>strong,body.dark-mode .streak-records b,body.dark-mode .streak-goal b{color:#b3ceb6}body.dark-mode .streak-week{border-color:#3c493d}body.dark-mode .streak-day:not(.is-active) b{background:#344138;color:#b3beb4}@media(max-width:850px){.daily-streak{grid-template-columns:1fr;gap:24px}.streak-week{border-left:0;border-top:1px solid #e9ede6;padding:22px 0 0}}@media(max-width:480px){.daily-streak{padding:20px}.streak-heading{flex-wrap:wrap}.streak-today{margin-left:0}.streak-days{gap:4px}.streak-day b{width:30px;height:30px}}
+
+.streak-calendar {
+    --calendar-line: #e3ebe2;
+    --calendar-surface: #f7faf6;
+    --calendar-active: #e0ede0;
+    --calendar-active-ink: #285b3c;
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--calendar-line);
+    padding-top: 12px;
+    scroll-margin-top: 90px;
+}
+.dark-mode .streak-calendar {
+    --calendar-line: #46574a;
+    --calendar-surface: #26352b;
+    --calendar-active: #365943;
+    --calendar-active-ink: #d2f3da;
+}
+.streak-calendar > summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 6px 0;
+    cursor: pointer;
+    font-size: .84rem;
+    font-weight: 700;
+    list-style: none;
+}
+.streak-calendar > summary::-webkit-details-marker { display: none; }
+.streak-calendar > summary .app-icon { width: 16px; height: 16px; }
+.streak-calendar[open] > summary span { transform: rotate(180deg); }
+.streak-calendar-panel {
+    max-width: 420px;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid var(--calendar-line);
+    border-radius: 14px;
+    background: var(--calendar-surface);
+}
+.streak-calendar-nav { display: flex; align-items: center; justify-content: space-between; font-size: .88rem; }
+.streak-calendar-nav a, .streak-calendar-nav > span {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--calendar-line);
+    border-radius: 8px;
+    color: inherit;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+.streak-calendar-nav > span { opacity: .35; }
+.streak-calendar-nav a:hover { background: var(--calendar-active); color: var(--calendar-active-ink); }
+.daily-streak .streak-calendar-grid { width: 100%; table-layout: fixed; margin: 6px 0; background: transparent; box-shadow: none; }
+.daily-streak .streak-calendar-grid :is(th, td) { padding: 3px 0; border: 0; background: transparent; color: inherit; text-align: center; font-size: .72rem; }
+.streak-calendar-grid time { display: grid; place-items: center; width: min(100%, 32px); height: 30px; margin: auto; border-radius: 7px; }
+.streak-calendar-grid .is-active, .streak-calendar-legend span:first-child b { background: var(--calendar-active); color: var(--calendar-active-ink); font-weight: 800; }
+.streak-calendar-grid .is-future { opacity: .45; }
+.streak-calendar-grid [aria-current], .streak-calendar-legend span:last-child b { outline: 1px solid currentColor; outline-offset: -1px; }
+.streak-calendar-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 4px 0 0; font-size: .72rem; }
+.streak-calendar-legend span { display: flex; align-items: center; gap: 5px; }
+.streak-calendar-legend b { width: 11px; height: 11px; border-radius: 3px; }

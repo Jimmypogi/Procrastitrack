@@ -1,0 +1,31 @@
+.dashboard-task-overview{overflow:hidden}
+.dashboard-task-overview .panel-header{margin-bottom:12px}
+.dashboard-priority-note{margin:0 0 18px;padding:11px 14px;border:1px solid #e2eade;border-radius:10px;background:#f4f7f1;color:#6a7c6d;font-size:.72rem;line-height:1.7}
+.dashboard-task-overview .modern-table{border-collapse:collapse;border-spacing:0;min-width:710px}
+.dashboard-task-overview .modern-table th{padding:14px 16px;background:#f3f7f3;color:#6f8877;font-size:.62rem;letter-spacing:.08em}
+.dashboard-task-overview .modern-table td{padding:21px 16px;border-bottom:1px solid #e8eee7;font-size:.8rem}
+.dashboard-task-overview .modern-table tbody tr{background:transparent;box-shadow:none}
+.dashboard-task-overview .modern-table tbody tr:hover{background:#f8faf6;box-shadow:none}
+.dashboard-task-overview .task-name{font-size:.82rem;font-weight:600;color:#354e3d}
+.dashboard-task-overview .task-subject{font-size:.75rem;color:#78847a}
+.dashboard-due-date{display:flex;flex-direction:column;align-items:flex-start;gap:5px;white-space:nowrap}
+.dashboard-due-date .task-deadline{color:#768078;font-size:.73rem}
+.dashboard-overdue{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:600;color:#b95643}
+.dashboard-overdue:before{content:'';width:5px;height:5px;background:currentColor;border-radius:50%}
+.dashboard-due-today{font-size:.65rem;color:#9a762d;font-weight:600}
+.dashboard-task-overview .priority-badge,.dashboard-task-overview .status-badge{padding:6px 10px;border-radius:20px;font-size:.65rem;font-weight:600;white-space:nowrap}
+.dashboard-task-overview .priority-high{background:#f8e8e3;color:#b35a48}
+.dashboard-task-overview .priority-medium{background:#f8f0d6;color:#927326}
+.dashboard-task-overview .priority-low{background:#eaf2e8;color:#5b7c56}
+.dashboard-task-overview .status-pending{background:#fcf2cd;color:#916c26}
+.dashboard-task-overview .status-info{background:#e6eff8;color:#4a7198}
+.dashboard-task-overview .action-buttons{gap:7px}
+.dashboard-task-overview .action-btn{border-radius:9px;width:32px;height:32px}
+.dark-mode .dashboard-priority-note{background:#29382d;border-color:#405445;color:#bdccbd}
+.dark-mode .dashboard-task-overview .modern-table th{background:#2b3c30;color:#b1c7b5}
+.dark-mode .dashboard-task-overview .modern-table tbody tr{background:transparent}
+.dark-mode .dashboard-task-overview .modern-table tbody tr:hover{background:#2b3b30}
+.dark-mode .dashboard-task-overview .task-name{color:#deeadf}
+.dark-mode .dashboard-task-overview .task-subject,.dark-mode .dashboard-due-date .task-deadline{color:#a9b8ae}
+.dark-mode .dashboard-overdue{color:#eda48e}
+@media(max-width:650px){.dashboard-priority-note{font-size:.68rem}.dashboard-task-overview .modern-table td{padding:18px 12px}}

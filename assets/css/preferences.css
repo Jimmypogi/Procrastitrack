@@ -1,0 +1,7 @@
+#preferenceStatus:not(:empty){position:fixed;right:24px;bottom:24px;z-index:9000;padding:12px 18px;border:1px solid #9bb8a5;border-radius:12px;background:#f1f7f2;color:#284b36;box-shadow:0 6px 24px #0002;max-width:calc(100vw - 48px)}
+#preferenceStatus[data-error="true"]{background:#fff1ef;color:#92372b;border-color:#dfa69c}
+#themeToggle[aria-pressed="true"]{background:#34483d;color:#f7dd8b}
+.topbar-btn:disabled{opacity:.6;cursor:wait}
+body.dark-mode .settings-card{background:#1e293b;border-color:#334155;color:#e2e8f0}
+body.dark-mode .settings-card label,body.dark-mode .settings-card .panel-title{color:#e2e8f0}
+body.dark-mode .settings-card input,body.dark-mode .settings-card select{background:#111827;color:#e2e8f0;border-color:#475569}
