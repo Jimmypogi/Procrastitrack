@@ -1,0 +1,884 @@
+/* ===== Tendency Classification Page ===== */
+
+.tendency-main-panel {
+    flex: 1;
+}
+
+.tendency-score-value {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.tendency-score-value span {
+    color: #8a968d;
+    font-size: .95rem;
+    font-weight: 650;
+    letter-spacing: 0;
+}
+
+.tendency-score-bar {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.tendency-score-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.8s ease;
+}
+
+.tendency-score-meta {
+    font-size: 0.75rem;
+    color: #948da8;
+    font-weight: 600;
+}
+
+.tendency-description {
+    color: #6b6580;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-top: 18px;
+    font-weight: 500;
+}
+
+.tendency-updated {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: #948da8;
+}
+
+.factor-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #f3f0f7;
+}
+
+.factor-item:last-child {
+    border-bottom: none;
+}
+
+.factor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.factor-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e1b2e;
+}
+
+.factor-weight {
+    font-size: 0.72rem;
+    color: #948da8;
+    font-weight: 600;
+}
+
+.factor-desc {
+    font-size: 0.75rem;
+    color: #6b6580;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.factor-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.factor-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.6s ease;
+}
+
+.factor-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.factor-score {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.factor-contrib {
+    font-size: 0.75rem;
+    color: #6b6580;
+}
+
+/* Tendency Chart */
+.tendency-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 160px;
+    padding: 16px 0;
+    overflow-x: auto;
+}
+
+.tendency-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+    flex: 1;
+}
+
+.tendency-bar-label {
+    font-size: 0.62rem;
+    color: #948da8;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.tendency-bar-track {
+    width: 100%;
+    height: 120px;
+    background: #f1eef8;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.tendency-bar-fill {
+    width: 100%;
+    max-width: 24px;
+    border-radius: 6px 6px 0 0;
+    transition: height 0.5s ease;
+}
+
+.tendency-bar-value {
+    font-size: 0.65rem;
+    color: #6b6580;
+    margin-top: 4px;
+    font-weight: 700;
+}
+
+/* Stats grid on tendency page */
+.tendency-stats {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media(max-width: 768px) {
+    .tendency-score-value {
+        font-size: 2.2rem;
+    }
+}
+
+body.tendency-page {
+    --tendency-ink: #26382c;
+    --tendency-muted: #748177;
+    --tendency-line: #e2eae3;
+    background:
+        radial-gradient(ellipse at 88% 0, rgba(166, 199, 173, .16), transparent 34%),
+        #f6f7f3;
+}
+
+body.tendency-page .s-inner {
+    max-width: 1260px;
+}
+
+body.tendency-page .s-head {
+    margin-bottom: 8px;
+}
+
+body.tendency-page .s-head .s-label,
+body.tendency-page .tendency-main-panel .s-label,
+body.tendency-page .tendency-recommendations .s-label,
+body.tendency-page .tendency-history-layout .s-label,
+body.tendency-page .tendency-details .s-label {
+    color: #63866d;
+    font-size: .67rem;
+    letter-spacing: .12em;
+}
+
+body.tendency-page .s-head h1 {
+    color: var(--tendency-ink);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    letter-spacing: -.045em;
+}
+
+body.tendency-page .s-head p {
+    margin-top: 5px;
+    color: var(--tendency-muted);
+    font-size: .84rem;
+}
+
+body.tendency-page .s-head-actions {
+    gap: 8px;
+}
+
+body.tendency-page .s-head-actions .s-btn {
+    min-height: 38px;
+    padding: 8px 13px;
+    border-color: var(--tendency-line);
+    border-radius: 999px;
+    font-size: .76rem;
+}
+
+body.tendency-page .s-head-actions .s-btn:focus-visible {
+    outline: 3px solid rgba(99, 134, 109, .35);
+    outline-offset: 2px;
+}
+
+.tendency-method-note {
+    margin: 8px 0 14px;
+    padding: 10px 12px;
+    border: 1px solid var(--tendency-line);
+    border-radius: 12px;
+    background: #f0f5f0;
+    color: var(--tendency-muted);
+    font-size: .74rem;
+    line-height: 1.5;
+}
+
+body.tendency-page .s-panel {
+    border: 1px solid var(--tendency-line);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(31, 54, 38, .04);
+}
+
+body.tendency-page .tendency-main-panel,
+body.tendency-page .tendency-recommendations,
+body.tendency-page .tendency-details,
+body.tendency-page .tendency-history-layout .s-panel {
+    padding: 20px;
+}
+
+body.tendency-page .tendency-main-panel .s-panel-header,
+body.tendency-page .tendency-recommendations .s-panel-header,
+body.tendency-page .tendency-history-layout .s-panel-header {
+    margin-bottom: 10px;
+}
+
+body.tendency-page .tendency-main-panel .s-panel-header h2,
+body.tendency-page .tendency-recommendations .s-panel-header h2,
+body.tendency-page .tendency-history-layout .s-panel-header h2 {
+    color: var(--tendency-ink);
+    font-size: .98rem;
+    letter-spacing: -.02em;
+}
+
+.tendency-score-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.tendency-score-label {
+    margin-bottom: 2px;
+    color: var(--tendency-muted);
+    font-size: .68rem;
+    font-weight: 650;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.tendency-score-value {
+    margin: 0;
+    font-size: 2.65rem;
+    letter-spacing: -.06em;
+    font-variant-numeric: tabular-nums;
+}
+
+.tendency-score-value span {
+    font-size: .9rem;
+    letter-spacing: 0;
+}
+
+.tendency-level-pill {
+    max-width: 62%;
+    padding: 8px 11px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.tendency-score-bar {
+    height: 10px;
+    margin: 9px 0 7px;
+}
+
+.tendency-score-meta {
+    color: var(--tendency-muted);
+    font-size: .75rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.tendency-description {
+    max-width: 780px;
+    margin-top: 14px;
+    color: #58665c;
+    font-size: .88rem;
+    line-height: 1.65;
+}
+
+.tendency-updated {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #edf1ed;
+    color: var(--tendency-muted);
+    font-size: .66rem;
+}
+
+.tendency-model-note {
+    margin: 0 0 8px;
+    color: var(--tendency-muted);
+    font-size: .75rem;
+    line-height: 1.55;
+}
+
+.factor-item {
+    padding: 9px 0;
+    border-color: #edf1ed;
+}
+
+.factor-header {
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.factor-name {
+    color: #35463a;
+    font-size: .78rem;
+}
+
+.factor-weight {
+    flex-shrink: 0;
+    font-size: .68rem;
+}
+
+.factor-desc {
+    margin: 0 0 8px;
+    color: var(--tendency-muted);
+    font-size: .72rem;
+    line-height: 1.5;
+}
+
+.factor-bar {
+    height: 6px;
+    margin-bottom: 5px;
+}
+
+.factor-meta {
+    font-size: .68rem;
+}
+
+.factor-score,
+.factor-contrib {
+    font-size: .7rem;
+}
+
+body.tendency-page .tendency-recommendations {
+    margin-top: 14px;
+}
+
+body.tendency-page .tendency-recommendations .s-panel-header {
+    margin-bottom: 12px;
+}
+
+body.tendency-page .tendency-recommendations .s-list {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 7px;
+}
+
+body.tendency-page .tendency-recommendations .s-list li {
+    gap: 8px;
+    padding: 9px 10px;
+    background: #f7f9f7;
+}
+
+body.tendency-page .tendency-recommendations .s-list-text {
+    font-size: .78rem;
+    line-height: 1.55;
+}
+
+body.tendency-page .tendency-details {
+    margin-top: 14px;
+    padding: 0;
+}
+
+body.tendency-page .tendency-details summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    color: var(--tendency-ink);
+    cursor: pointer;
+    list-style: none;
+}
+
+body.tendency-page .tendency-details summary::-webkit-details-marker {
+    display: none;
+}
+
+body.tendency-page .tendency-details summary:focus-visible {
+    outline: 3px solid rgba(99, 134, 109, .35);
+    outline-offset: 3px;
+    border-radius: 12px;
+}
+
+body.tendency-page .tendency-details summary > span:first-child {
+    display: grid;
+    gap: 4px;
+}
+
+body.tendency-page .tendency-details summary strong {
+    font-size: .88rem;
+}
+
+.tendency-details-count {
+    margin-left: auto;
+    padding: 5px 8px;
+    border: 1px solid var(--tendency-line);
+    border-radius: 999px;
+    color: var(--tendency-muted);
+    font-size: .66rem;
+    white-space: nowrap;
+}
+
+body.tendency-page .tendency-details summary::after {
+    content: "+";
+    color: #63866d;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+body.tendency-page .tendency-details[open] summary::after {
+    content: "−";
+}
+
+.tendency-details-content {
+    padding: 0 20px 14px;
+}
+
+.tendency-history-intro {
+    margin: -2px 0 8px;
+    color: var(--tendency-muted);
+    font-size: .72rem;
+    line-height: 1.5;
+}
+
+body.tendency-page .tendency-empty-state {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin: 14px 0;
+    padding: clamp(24px, 5vw, 42px);
+    text-align: center;
+}
+
+.tendency-empty-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid #dfe9e0;
+    border-radius: 15px;
+    background: #edf4ee;
+    color: #63866d;
+}
+
+.tendency-empty-icon .app-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.tendency-empty-state h2 {
+    margin: 0;
+    color: var(--tendency-ink);
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    letter-spacing: -.025em;
+}
+
+.tendency-empty-state p {
+    max-width: 560px;
+    margin: 0;
+    color: var(--tendency-muted);
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+.tendency-empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.tendency-empty-actions .s-btn {
+    min-height: 40px;
+    align-items: center;
+    border-color: var(--tendency-line);
+    border-radius: 11px;
+    font-size: .74rem;
+}
+
+body.tendency-page .tendency-history-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+    align-items: start;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+body.tendency-page .tendency-history-layout .tendency-chart {
+    height: 130px;
+    gap: 8px;
+    padding: 9px 0 4px;
+}
+
+body.tendency-page .tendency-bar-track {
+    height: 90px;
+    background: #f0f4f0;
+}
+
+body.tendency-page .tendency-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+}
+
+body.tendency-page .tendency-stats .stat-box {
+    padding: 10px 8px;
+    border: 1px solid #edf1ed;
+    border-radius: 11px;
+    background: #f7f9f7;
+}
+
+body.tendency-page .tendency-stats .stat-value {
+    font-size: 1.15rem;
+}
+
+body.tendency-page .tendency-stats .stat-label {
+    color: var(--tendency-muted);
+    font-size: .65rem;
+    line-height: 1.35;
+}
+
+.tendency-level-low { --level-ink: #166534; --level-fill: #21965c; }
+.tendency-level-moderate { --level-ink: #92400e; --level-fill: #d99514; }
+.tendency-level-high { --level-ink: #b91c1c; --level-fill: #d65d62; }
+
+.dark-mode .tendency-level-low { --level-ink: #86efac; }
+.dark-mode .tendency-level-moderate { --level-ink: #fcd34d; }
+.dark-mode .tendency-level-high { --level-ink: #fca5a5; }
+
+body.tendency-page .tendency-live {
+    padding: clamp(16px, 3vw, 28px);
+    color: var(--tendency-ink);
+    border-color: var(--tendency-line);
+}
+
+.tendency-live-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--tendency-line);
+}
+
+.tendency-live-header h2 { margin: 0 0 4px; font-size: 1rem; }
+.tendency-live-header p, .tendency-live-summary p {
+    margin: 0;
+    color: var(--tendency-muted);
+    font-size: .82rem;
+    line-height: 1.5;
+}
+
+.tendency-live-summary { padding: 18px 0; text-align: center; }
+.tendency-live-level { display: block; margin-top: 4px; color: var(--level-ink); font-size: 1.15rem; }
+.tendency-live-score { font-size: 1.35rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.tendency-live-scale { margin: 26px auto 10px; max-width: 620px; padding: 0 7px; }
+.tendency-live-track { position: relative; }
+
+.tendency-live-track::before {
+    content: '';
+    position: absolute;
+    left: var(--score);
+    top: -15px;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top: 10px solid var(--tendency-ink);
+}
+
+.tendency-threshold-bar { display: grid; height: 16px; overflow: hidden; border-radius: 6px; }
+.tendency-threshold-bar span:nth-child(1) { background: #21965c; }
+.tendency-threshold-bar span:nth-child(2) { background: #d99514; }
+.tendency-threshold-bar span:nth-child(3) { background: #d65d62; }
+
+.tendency-live-labels {
+    display: grid;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.tendency-live-labels small { display: block; color: var(--tendency-muted); font-weight: 500; }
+.tendency-live-factors { padding-top: 16px; border-top: 1px solid var(--tendency-line); }
+.tendency-live-factors h3 { margin: 0 0 12px; font-size: .9rem; }
+.tendency-live-factors dl { display: grid; gap: 12px; margin: 0; }
+.tendency-live-factor { position: relative; font-size: .82rem; }
+.tendency-live-factor dt { padding-right: 96px; }
+.tendency-live-factor dd { margin: 0; }
+.tendency-live-factor dd > :first-child { position: absolute; right: 0; top: 0; color: var(--tendency-muted); }
+.tendency-factor-track { display: block; height: 6px; margin-top: 5px; overflow: hidden; border-radius: 6px; background: var(--tendency-line); }
+.tendency-factor-track span { display: block; height: 100%; border-radius: inherit; background: var(--level-fill); }
+.tendency-factor-explanation {
+    margin-top: 9px;
+    padding: 8px 12px;
+    border-left: 2px solid var(--level-fill);
+    border-radius: 0 8px 8px 0;
+    background: color-mix(in srgb, var(--level-fill) 8%, transparent);
+    color: var(--tendency-muted);
+    line-height: 1.5;
+}
+.tendency-factor-explanation p { margin: 0; }
+.tendency-factor-explanation strong { color: var(--tendency-ink); }
+.tendency-factor-explanation summary { margin-top: 4px; cursor: pointer; }
+.tendency-factor-explanation ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; padding: 0; list-style: none; }
+
+.tendency-live-followup {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--tendency-line);
+    font-size: .82rem;
+    line-height: 1.55;
+}
+.tendency-live-followup h3 { margin: 0 0 8px; font-size: .9rem; }
+.tendency-live-followup p { margin: 0; color: var(--tendency-muted); }
+.tendency-live-followup ul { margin: 0; padding-left: 20px; }
+.tendency-live-followup li + li { margin-top: 4px; }
+.tendency-history-figure {
+    --history-axis: 36px;
+    --history-accent: #177b50;
+    margin: 12px 0;
+    padding: 22px 14px 12px;
+    border: 1px solid var(--tendency-line);
+    border-radius: 12px;
+    background: #f6f9f6;
+}
+.dark-mode .tendency-history-figure {
+    --history-accent: #6bd9a7;
+    background: #19241e;
+}
+.tendency-history-plot {
+    position: relative;
+    height: clamp(120px, 22vw, 200px);
+    margin-left: var(--history-axis);
+}
+.tendency-history-key {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    margin: 0 0 16px var(--history-axis);
+    color: var(--history-accent);
+    font-size: .75rem;
+}
+.tendency-history-key strong {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--history-accent) 12%, transparent);
+    font-variant-numeric: tabular-nums;
+}
+.tendency-history-gridline {
+    position: absolute;
+    width: 100%;
+    border-top: 1px dashed var(--tendency-line);
+}
+.tendency-history-baseline { border-top-style: solid; }
+.tendency-history-gridline span {
+    position: absolute;
+    right: calc(100% + 9px);
+    transform: translateY(-50%);
+    color: var(--tendency-muted);
+    font-size: .7rem;
+    font-variant-numeric: tabular-nums;
+}
+.tendency-history-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.tendency-history-plot svg line { stroke: var(--history-accent); stroke-width: 2.5; stroke-linecap: round; }
+.tendency-history-plot svg .tendency-history-placeholder { stroke: var(--tendency-muted); stroke-dasharray: 4 5; }
+.tendency-history-point {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--history-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--history-accent) 20%, transparent);
+}
+.tendency-history-figure ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 12px 0 0 var(--history-axis);
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+.tendency-history-figure li + li { margin-top: 0; }
+.tendency-history-figure li span, .tendency-history-figure li strong { display: block; }
+.tendency-history-figure li span, .tendency-history-missing { color: var(--tendency-muted); font-size: .72rem; }
+.tendency-history-missing { font-weight: 400; }
+.tendency-history-point-missing {
+    width: 8px;
+    height: 8px;
+    background: var(--tendency-muted);
+    box-shadow: none;
+}
+.tendency-history-figure figcaption p { margin: 10px 0 0; font-size: .72rem; }
+.tendency-live-followup .tendency-weekly-change { color: var(--level-ink, var(--tendency-muted)); }
+
+body.dark-mode.tendency-page {
+    --tendency-ink: #e2ece4;
+    --tendency-muted: #adbbb1;
+    --tendency-line: #3a4b3f;
+    background: #171f1a;
+}
+
+body.dark-mode.tendency-page .s-panel,
+body.dark-mode.tendency-page .tendency-recommendations .s-list li,
+body.dark-mode.tendency-page .tendency-stats .stat-box {
+    border-color: var(--tendency-line);
+    background: #202a23;
+}
+
+body.dark-mode.tendency-page .s-head h1,
+body.dark-mode.tendency-page .tendency-main-panel .s-panel-header h2,
+body.dark-mode.tendency-page .tendency-recommendations .s-panel-header h2,
+body.dark-mode.tendency-page .tendency-history-layout .s-panel-header h2,
+body.dark-mode.tendency-page .tendency-empty-state h2,
+body.dark-mode.tendency-page .factor-name {
+    color: var(--tendency-ink);
+}
+
+body.dark-mode.tendency-page .tendency-description,
+body.dark-mode.tendency-page .factor-contrib,
+body.dark-mode.tendency-page .tendency-history-intro,
+body.dark-mode.tendency-page .factor-desc {
+    color: #adbbb1;
+}
+
+body.dark-mode.tendency-page .factor-item,
+body.dark-mode.tendency-page .tendency-updated {
+    border-color: #39483e;
+}
+
+body.dark-mode.tendency-page .tendency-bar-track {
+    background: #2a382e;
+}
+
+body.dark-mode.tendency-page .tendency-method-note {
+    border-color: var(--tendency-line);
+    background: #202a23;
+}
+
+body.dark-mode.tendency-page .tendency-empty-icon {
+    border-color: #405745;
+    background: #2e4634;
+    color: #b6d2bb;
+}
+
+body.dark-mode.tendency-page .tendency-details summary {
+    color: var(--tendency-ink);
+}
+
+body.dark-mode.tendency-page .tendency-details-count {
+    border-color: var(--tendency-line);
+    background: #26332a;
+}
+
+body.dark-mode.tendency-page .tendency-score-value span {
+    color: #adbbb1;
+}
+
+@media (max-width: 880px) {
+    body.tendency-page .tendency-history-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    body.tendency-page .s-head-actions {
+        width: 100%;
+    }
+
+    body.tendency-page .s-head-actions .s-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    body.tendency-page .tendency-main-panel,
+    body.tendency-page .tendency-recommendations,
+    body.tendency-page .tendency-details,
+    body.tendency-page .tendency-history-layout .s-panel {
+        padding: 14px;
+    }
+
+    body.tendency-page .tendency-details {
+        padding: 0;
+    }
+
+    body.tendency-page .tendency-details summary {
+        gap: 8px;
+        padding: 14px;
+    }
+
+    .tendency-details-content {
+        padding: 0 14px 10px;
+    }
+
+    body.tendency-page .tendency-score-topline {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .tendency-level-pill {
+        max-width: 100%;
+        padding: 7px 9px;
+        font-size: .66rem;
+    }
+
+    .tendency-empty-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .tendency-empty-actions .s-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tendency-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.tendency-page .tendency-score-value {
+        font-size: 2.3rem;
+    }
+}

@@ -9,11 +9,14 @@ function app_database_connect(): mysqli {
         $value = getenv($name);
         return $value !== false ? $value : ($local[$name] ?? $fallback);
     };
-    $host = $setting('DB_HOST', $production ? '' : 'localhost');
-    $user = $setting('DB_USER', $setting('DB_USERNAME', $production ? '' : 'root'));
-    $password = $setting('DB_PASSWORD', '');
-    $database = $setting('DB_NAME', $setting('DB_DATABASE', $production ? '' : 'procrastitrack'));
-    $port = filter_var($setting('DB_PORT', '3306'), FILTER_VALIDATE_INT, ['options'=>['min_range'=>1,'max_range'=>65535]]);
+    $url = $setting('DB_URL', '') ?: $setting('DATABASE_URL', '');
+    $parts = $url !== '' ? parse_url($url) : [];
+    $mysqlUrl = is_array($parts) && in_array($parts['scheme'] ?? '', ['mysql', 'mariadb'], true);
+    $host = $setting('DB_HOST', $mysqlUrl ? ($parts['host'] ?? '') : ($production ? '' : 'localhost'));
+    $user = $setting('DB_USER', $setting('DB_USERNAME', $mysqlUrl ? rawurldecode($parts['user'] ?? '') : ($production ? '' : 'root')));
+    $password = $setting('DB_PASSWORD', $mysqlUrl ? rawurldecode($parts['pass'] ?? '') : '');
+    $database = $setting('DB_NAME', $setting('DB_DATABASE', $mysqlUrl ? rawurldecode(ltrim($parts['path'] ?? '', '/')) : ($production ? '' : 'procrastitrack')));
+    $port = filter_var($setting('DB_PORT', $mysqlUrl ? ($parts['port'] ?? 3306) : 3306), FILTER_VALIDATE_INT, ['options'=>['min_range'=>1,'max_range'=>65535]]);
     if (!$port || $host === '' || $user === '' || $database === '' || ($production && $password === '')) {
         http_response_code(503);
         exit('Database settings are incomplete. Please contact the site administrator.');

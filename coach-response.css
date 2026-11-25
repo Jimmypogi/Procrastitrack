@@ -1,0 +1,77 @@
+.coach-result{margin-top:24px;color:#293c32;line-height:1.6;overflow-wrap:anywhere}.coach-result:empty{display:none}.coach-result-title{margin:0 0 16px;font-size:1.25rem;letter-spacing:-.02em}.coach-result-grid{display:grid;gap:12px}.coach-result-card{padding:18px 20px;border:1px solid #e1e9e3;border-radius:16px;background:#fafcf9}.coach-result-card h4{margin:0 0 10px;font-size:1rem;color:#355e47}.coach-result-card p{margin:8px 0;font-size:.94rem}.coach-result-card p:first-child{margin-top:0}.coach-result-card p:last-child{margin-bottom:0}.coach-result-card ul{margin:0;padding-left:20px;display:grid;gap:8px;font-size:.94rem}.coach-result-card li::marker{color:#6d8f7a}.coach-result-card strong{font-weight:600}.coach-result-note{margin:14px 0 0;font-size:.83rem;color:#65746b}.coach-result[aria-busy="true"]{padding:18px;border-radius:14px;background:#f3f7f3}body.dark-mode .coach-result{color:#e0e9e2}body.dark-mode .coach-result-card{background:#26312b;border-color:#3d4a42}body.dark-mode .coach-result-card h4{color:#b8d7c2}body.dark-mode .coach-result-note{color:#b3c2b9}body.dark-mode .coach-result[aria-busy="true"]{background:#26312b}@media(max-width:600px){.coach-result-card{padding:15px}.coach-result-title{font-size:1.1rem}}
+.coach-result-grid{gap:20px}
+.coach-result-title{margin-bottom:22px;font-size:1.4rem}
+.coach-result-card{padding:24px;background:#f6f8f5}
+.coach-result-card:has(>h4:only-child){padding:0;border:0;background:none}
+.coach-result-card:has(>h4:only-child) h4{margin:6px 0 -8px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#66796d}
+.coach-result-card ul{gap:14px;line-height:1.8}
+.coach-task{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;padding:28px;border:1px solid #dce6df;border-radius:20px;background:#fff;box-shadow:0 5px 20px #293c3206}
+.coach-task:first-of-type{border-color:#9cb8a6;background:linear-gradient(130deg,#f0f6ef,#fff 75%);box-shadow:0 8px 26px #3758400a}
+.coach-task-head{grid-column:1/-1;display:flex;align-items:center;gap:16px}
+.coach-task-rank{display:grid;place-items:center;flex-shrink:0;width:46px;height:46px;border-radius:14px;background:#eaf1eb;color:#486b55;font-size:1.05rem;font-weight:700;font-variant-numeric:tabular-nums}
+.coach-task:first-of-type .coach-task-rank{background:#365c46;color:#fff}
+.coach-task-label{display:block;margin-bottom:4px;color:#607866;font-size:.65rem;font-weight:700;letter-spacing:.13em}
+.coach-task h4{margin:0;color:inherit;font-size:1.2rem;line-height:1.4}
+.coach-task-due{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:fit-content;padding:6px 12px;border-radius:8px;background:#f1f4f0;font-size:.8rem}
+.coach-task-due p{margin:0;font-weight:600}
+.coach-task-detail{grid-column:1/-1}
+.coach-task-detail>span,.coach-task-action>span{display:block;margin-bottom:6px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#607366}
+.coach-task-detail p,.coach-task-action p{margin:0;font-size:.93rem;line-height:1.8}
+.coach-task-action{grid-column:1/-1;border-top:1px solid #dce7dd;padding:18px 20px;background:#eef4ed;border-radius:12px}
+.coach-task-action>span{color:#365c46}
+.coach-result-note{margin-top:20px;padding-left:14px;border-left:3px solid #abc3af;line-height:1.7}
+body.dark-mode .coach-task{background:#26312b;border-color:#475e4f;box-shadow:none}
+body.dark-mode .coach-task:first-of-type{background:linear-gradient(130deg,#2b3e30,#26312b)}
+body.dark-mode .coach-task-rank,body.dark-mode .coach-task-due,body.dark-mode .coach-task-action{background:#344b3b;color:#e0e9e2;border-color:#475e4f}
+body.dark-mode .coach-task-label,body.dark-mode .coach-task-detail>span,body.dark-mode .coach-task-action>span{color:#b8d7c2}
+@media(max-width:600px){.coach-task{padding:20px;gap:16px}.coach-task-head{gap:12px}.coach-task h4{font-size:1.05rem}.coach-task-action{padding:16px}.coach-result-card{padding:20px}}
+.coach-schedule-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:14px}
+.coach-day-card{position:relative;display:flex;flex-direction:column;min-height:190px;padding:20px 20px 18px;border:1px solid #dce7de;border-radius:18px;background:linear-gradient(155deg,#fff 5%,#f3f7f3 100%);box-shadow:0 8px 24px #243a2a0a}
+.coach-day-card h4{margin:0 0 3px;color:#294c38;font-size:1rem;letter-spacing:-.01em}
+.coach-day-date{display:block;margin:0 0 14px;color:#77867b;font-size:.77rem;font-weight:600}
+.coach-day-card ul{gap:9px;padding-left:18px;line-height:1.55;font-size:.88rem}
+.coach-day-card li::marker{color:#6c9478}
+.coach-day-card p{font-size:.88rem}
+.coach-day-card[data-weekday="Saturday"],.coach-day-card[data-weekday="Sunday"]{background:linear-gradient(155deg,#f7faf6,#edf4ee)}
+.coach-day-focus{display:grid;gap:6px;margin:6px 0 2px;padding:12px 13px;border:1px solid #e1ebe2;border-radius:12px;background:rgba(255,255,255,.72)}
+.coach-day-focus>span{color:#66836d;font-size:.62rem;font-weight:800;letter-spacing:.11em}
+.coach-day-focus p{margin:0;color:#304b38;font-size:.88rem;font-weight:650;line-height:1.55}
+.coach-day-card .coach-day-break,.coach-day-card .coach-day-total{font-size:.77rem;line-height:1.45}
+.coach-day-card .coach-day-total{color:#48644f;font-weight:700}
+.coach-day-buffer{min-height:0;background:linear-gradient(155deg,#f8faf8,#f1f5f1)}
+.coach-day-buffer li{color:#66776b}
+body.dark-mode .coach-day-focus{border-color:#45594a;background:rgba(34,49,39,.7)}
+body.dark-mode .coach-day-focus>span,body.dark-mode .coach-day-card .coach-day-total{color:#b8d7c2}
+body.dark-mode .coach-day-focus p{color:#e0e9e2}
+body.dark-mode .coach-day-buffer{background:linear-gradient(155deg,#2c3b31,#29362d)}
+body.dark-mode .coach-day-card{background:linear-gradient(155deg,#2b3930,#26312b);border-color:#45594a}
+body.dark-mode .coach-day-card[data-weekday="Saturday"],body.dark-mode .coach-day-card[data-weekday="Sunday"]{background:linear-gradient(155deg,#2c3b31,#29362d)}
+body.dark-mode .coach-day-card h4{color:#cce2d0}body.dark-mode .coach-day-date{color:#a6b8aa}
+@media(max-width:900px){.coach-schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.coach-schedule-grid{grid-template-columns:1fr;gap:12px}.coach-day-card{min-height:0;padding:18px}.coach-day-date{margin-bottom:10px}}
+.coach-assistant-card{position:relative;max-width:760px;overflow:hidden;border:1px solid #d8e6db;border-radius:22px;background:radial-gradient(ellipse at 0 0,#eaf4ec 0,transparent 42%),linear-gradient(145deg,#fff 10%,#f5f9f5 100%);box-shadow:0 18px 48px #315a3c12,0 3px 10px #315a3c08}
+.coach-assistant-card:before{position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(180deg,#8eb69a,#547e62 55%,#c2d9c7);content:""}
+.coach-assistant-head{display:flex;align-items:center;gap:13px;padding:22px 24px 16px 26px}
+.coach-assistant-mark{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border:1px solid #d3e3d6;border-radius:14px;background:linear-gradient(145deg,#fff,#e9f3eb);color:#4e7b5d;font-size:1.3rem;box-shadow:0 5px 14px #416b4b14}
+.coach-assistant-intro{display:grid;gap:4px}.coach-assistant-label{color:#557963;font-size:.66rem;font-weight:800;letter-spacing:.13em}.coach-assistant-subtitle{color:#7b897f;font-size:.79rem}
+.coach-assistant-message{padding:0 27px 24px 81px;color:#2e4235;font-size:1rem;line-height:1.85}
+.coach-assistant-message p{margin:0 0 12px}.coach-assistant-message p:last-child{margin-bottom:0}.coach-assistant-message strong{color:#28583a;font-weight:750;background:linear-gradient(transparent 64%,#dceede 64%);padding:0 2px}
+body.dark-mode .coach-assistant-card{background:radial-gradient(ellipse at 0 0,#304b37 0,transparent 45%),linear-gradient(145deg,#2b3930,#26312b);border-color:#45594a;box-shadow:none}
+body.dark-mode .coach-assistant-mark{background:linear-gradient(145deg,#344b3b,#293c2f);border-color:#506754;color:#c3dfc9}
+body.dark-mode .coach-assistant-label{color:#b8d7c2}body.dark-mode .coach-assistant-subtitle{color:#a6b8aa}
+body.dark-mode .coach-assistant-message{color:#e0e9e2}body.dark-mode .coach-assistant-message strong{color:#d5efdb;background:linear-gradient(transparent 64%,#42644b 64%)}
+@media(max-width:600px){.coach-assistant-head{padding:19px 18px 13px 20px}.coach-assistant-message{padding:0 20px 21px 73px;font-size:.95rem}.coach-assistant-mark{width:38px;height:38px;flex-basis:38px}}
+.coach-shortcuts{margin:0 0 22px;padding:20px 22px}
+.coach-shortcuts-head{margin-bottom:14px}.coach-shortcuts-head .s-label{margin-bottom:5px}.coach-shortcuts-head h2{margin:0;font-size:1.12rem;letter-spacing:-.02em}
+.coach-shortcuts-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.coach-shortcut{display:flex;align-items:center;gap:10px;min-height:54px;padding:10px 12px;border:1px solid #e0e9e2;border-radius:13px;background:linear-gradient(145deg,#fbfdfb,#f3f7f3);color:#355e47;text-decoration:none;font-size:.82rem;font-weight:650;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}
+.coach-shortcut:hover,.coach-shortcut:focus-visible{transform:translateY(-2px);border-color:#9bb8a2;background:#f1f7f1;box-shadow:0 8px 20px #315a3c12;outline:none}
+.coach-shortcut-mark{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#e7f0e8;color:#52785d;font-size:1.05rem}
+.coach-shortcut-arrow{margin-left:auto;color:#8a9a8e;font-size:1rem;transition:transform .18s ease}.coach-shortcut:hover .coach-shortcut-arrow{transform:translate(2px,-2px)}
+.coach-guidance-panel{max-width:none}
+body.dark-mode .coach-shortcut{background:linear-gradient(145deg,#29372e,#253129);border-color:#425347;color:#dce9df}
+body.dark-mode .coach-shortcut:hover,body.dark-mode .coach-shortcut:focus-visible{background:#2f4435;border-color:#6a8a72;box-shadow:none}
+body.dark-mode .coach-shortcut-mark{background:#354b3b;color:#c5ddca}body.dark-mode .coach-shortcut-arrow{color:#a6b8aa}
+@media(max-width:1100px){.coach-shortcuts-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.coach-shortcuts{padding:17px}.coach-shortcuts-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.coach-shortcut{min-height:50px;padding:9px;font-size:.76rem}}
+@media(max-width:420px){.coach-shortcuts-grid{grid-template-columns:1fr}}
