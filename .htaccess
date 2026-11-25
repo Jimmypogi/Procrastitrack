@@ -1,0 +1,19 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Internal code and development artifacts must never be served directly.
+RewriteRule ^(?:config|lib|includes|vendor|database|tests|scripts|\.git|\.kilo|\.codex|\.agents)(?:/|$) - [F,L,NC]
+# Route the old test URL to a safe authenticated, localhost-only diagnostic page.
+RewriteRule ^test\.php$ system_diagnostics.php [END,NC]
+RewriteRule ^(?:test[^/]*|check_db|db_setup|setup|send_notifications)\.php$ - [F,L,NC]
+RewriteRule (^|/)\. - [F,L]
+RewriteRule \.(?:zip|rar|7z|sql|bak|old|log|env|ini|example|md|lock)$ - [F,L,NC]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Content-Security-Policy "frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+</IfModule>
